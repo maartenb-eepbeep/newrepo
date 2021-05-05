@@ -1,0 +1,26 @@
+{
+	"name": "ds_RIVM",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "RIVM",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "HttpServerLocation"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Date_of_report;Municipality_code;Municipality_name;Province;Total_reported;Hospital_admission;Deceased",
+				"type": "String"
+			}
+		]
+	}
+}
