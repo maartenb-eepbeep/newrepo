@@ -1,0 +1,9 @@
+{
+	"name": "ADF-with-repo",
+	"location": "westeurope",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "2cda9e08-0d87-464f-82ce-144874ae16db",
+		"tenantId": "7055aa7d-3d3e-4ffa-85db-81ef4ef1976f"
+	}
+}
