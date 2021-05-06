@@ -1,0 +1,13 @@
+{
+	"name": "ls_RIVM_COVID19_ziekenhuisopnames",
+	"properties": {
+		"description": "https://data.rivm.nl/covid-19/COVID-19_ziekenhuisopnames.csv\n",
+		"annotations": [],
+		"type": "HttpServer",
+		"typeProperties": {
+			"url": "https://data.rivm.nl/covid-19/COVID-19_ziekenhuisopnames.csv",
+			"enableServerCertificateValidation": true,
+			"authenticationType": "Anonymous"
+		}
+	}
+}
