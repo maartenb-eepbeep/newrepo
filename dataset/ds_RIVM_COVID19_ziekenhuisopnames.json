@@ -1,0 +1,64 @@
+{
+	"name": "ds_RIVM_COVID19_ziekenhuisopnames",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_RIVM_COVID19_ziekenhuisopnames",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"Security_region_code": {
+				"type": "string",
+				"defaultValue": "VR09"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "HttpServerLocation"
+			},
+			"columnDelimiter": ";",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Version",
+				"type": "String"
+			},
+			{
+				"name": "Date_of_report",
+				"type": "String"
+			},
+			{
+				"name": "Date_of_statistics",
+				"type": "String"
+			},
+			{
+				"name": "Municipality_code",
+				"type": "String"
+			},
+			{
+				"name": "Municipality_name",
+				"type": "String"
+			},
+			{
+				"name": "Security_region_code",
+				"type": "String"
+			},
+			{
+				"name": "Security_region_name",
+				"type": "String"
+			},
+			{
+				"name": "Hospital_admission_notification",
+				"type": "String"
+			},
+			{
+				"name": "Hospital_admission",
+				"type": "String"
+			}
+		]
+	}
+}
