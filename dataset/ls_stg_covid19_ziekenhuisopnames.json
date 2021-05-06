@@ -1,0 +1,53 @@
+{
+	"name": "ls_stg_covid19_ziekenhuisopnames",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_dwh",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Version",
+				"type": "varchar"
+			},
+			{
+				"name": "Date_of_report",
+				"type": "varchar"
+			},
+			{
+				"name": "Date_of_statistics",
+				"type": "varchar"
+			},
+			{
+				"name": "Municipality_code",
+				"type": "varchar"
+			},
+			{
+				"name": "Municipality_name",
+				"type": "varchar"
+			},
+			{
+				"name": "Security_region_code",
+				"type": "varchar"
+			},
+			{
+				"name": "Security_region_name",
+				"type": "varchar"
+			},
+			{
+				"name": "Hospital_admission_notification",
+				"type": "varchar"
+			},
+			{
+				"name": "Hospital_admission",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "stg",
+			"table": "COVID19_ziekenhuisopnames"
+		}
+	}
+}

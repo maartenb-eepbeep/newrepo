@@ -1,6 +1,7 @@
 {
-	"name": "RIVM_hospital",
+	"name": "ls_RIVM_COVID19_ziekenhuisopnames",
 	"properties": {
+		"description": "https://data.rivm.nl/covid-19/COVID-19_ziekenhuisopnames.csv\n",
 		"annotations": [],
 		"type": "HttpServer",
 		"typeProperties": {
