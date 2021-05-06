@@ -2,7 +2,7 @@
 	"name": "ds_RIVM",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "RIVM",
+			"referenceName": "ls_RIVM_COVID19_ziekenhuisopnames",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
