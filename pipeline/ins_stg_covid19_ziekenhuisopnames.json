@@ -1,9 +1,9 @@
 {
-	"name": "pipeline1",
+	"name": "ins_stg_covid19_ziekenhuisopnames",
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy data1",
+				"name": "Copy to Stage",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -25,7 +25,130 @@
 							"type": "DelimitedTextReadSettings"
 						}
 					},
-					"enableStaging": false
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "/****** Object:  Table [stg].[COVID19_ziekenhuisopnames]    Script Date: 06/05/2021 14:06:28 ******/\nIF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[stg].[COVID19_ziekenhuisopnames]') AND type in (N'U'))\nDROP TABLE [stg].[COVID19_ziekenhuisopnames]\nGO\n\n/****** Object:  Table [stg].[COVID19_ziekenhuisopnames]    Script Date: 06/05/2021 14:01:02 ******/\nSET ANSI_NULLS ON\nGO\n\nSET QUOTED_IDENTIFIER ON\nGO\n\nCREATE TABLE [stg].[COVID19_ziekenhuisopnames](\n\t[Version] [varchar](4) NULL,\n\t[Date_of_report] [varchar](50) NULL,\n\t[Date_of_statistics] [varchar](50) NULL,\n\t[Municipality_code] [varchar](10) NULL,\n\t[Municipality_name] [varchar](50) NULL,\n\t[Security_region_code] [varchar](8) NULL,\n\t[Security_region_name] [varchar](50) NULL,\n\t[Hospital_admission_notification] [varchar](8) NULL,\n\t[Hospital_admission] [varchar](8) NULL\n) ON [PRIMARY]\nGO\n\n\n",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "Version",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Version",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Date_of_report",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Date_of_report",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Date_of_statistics",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Date_of_statistics",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Municipality_code",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Municipality_code",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Municipality_name",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Municipality_name",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Security_region_code",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Security_region_code",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Security_region_name",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Security_region_name",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Hospital_admission_notification",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Hospital_admission_notification",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Hospital_admission",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Hospital_admission",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
 				},
 				"inputs": [
 					{
@@ -34,6 +157,12 @@
 						"parameters": {
 							"Security_region_code": "VR09"
 						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "ls_stg_covid19_ziekenhuisopnames",
+						"type": "DatasetReference"
 					}
 				]
 			}
